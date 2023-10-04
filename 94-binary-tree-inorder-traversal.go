@@ -17,6 +17,9 @@ In order traversal is the act of traversing the tree in the order of left, root,
 Questions:
 How many nodes are in the tree?
 What tests does this need to pass?
+
+Solution:
+A recursive algorithm that traverses the tree in the order of left, root, right.
 **/
 
 
