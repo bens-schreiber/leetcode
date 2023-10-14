@@ -104,6 +104,26 @@ func levelOrderTraversal(root *TreeNode) []int {
 
 }
 
+/*
+The tree height is described as the longest path from the root to a leaf.
+We can calculate this with a DFS, comparing the length of the right and left, and returning the highest.
+*/
+func treeHeight(root *TreeNode) int {
+	if root == nil {
+		return -1
+	}
+
+	left := 1 + treeHeight(root.Left)
+	right := 1 + treeHeight((root.Right))
+
+	if left > right {
+		return left
+	}
+
+	return right
+
+}
+
 func main() {
 
 }

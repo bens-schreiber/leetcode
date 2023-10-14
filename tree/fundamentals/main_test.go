@@ -54,3 +54,11 @@ func TestLevelOrderTraversal(t *testing.T) {
 		}
 	}
 }
+
+func TestTreeHeight(t *testing.T) {
+	got := treeHeight(&TreeNode{1, &TreeNode{1, &TreeNode{1, &TreeNode{1, nil, nil}, nil}, nil}, &TreeNode{1, nil, nil}})
+	want := 3
+	if got != want {
+		t.Fatalf("got %d want %d", got, want)
+	}
+}
