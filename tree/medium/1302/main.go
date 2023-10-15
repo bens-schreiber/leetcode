@@ -9,7 +9,6 @@ Solution:
 BFS the tree. Save a copy of the queue of nodes. When the BFS is done, the copy of the nodes should be the last layer of nodes.
 Sum that layer.
 
-
 */
 
 type TreeNode struct {
@@ -22,8 +21,9 @@ func deepestLeavesSum(root *TreeNode) int {
 	queue := []*TreeNode{root}
 	lastLayer := []*TreeNode{}
 	for len(queue) > 0 {
+		levelSize := len(queue)
 		lastLayer = queue
-		for i := 0; i < len(queue); i++ {
+		for i := 0; i < levelSize; i++ {
 			node := queue[i]
 			queue = queue[1:]
 
