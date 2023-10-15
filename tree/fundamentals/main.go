@@ -105,6 +105,40 @@ func levelOrderTraversal(root *TreeNode) []int {
 }
 
 /*
+A level order traversal can be described as a breadth first search:
+
+for layer in tree:
+
+	for child in layer:
+		print child
+*/
+func levelOrderTraversalAware(root *TreeNode) []int {
+	ret := []int{}
+	q := []*TreeNode{root}
+	var node *TreeNode = nil
+	for len(q) > 0 {
+		levelSize := len(q)
+
+		for i := 0; i < levelSize; i++ {
+			node = q[0]
+			ret = append(ret, node.Val)
+			q = q[1:]
+
+			if node.Left != nil {
+				q = append(q, node.Left)
+			}
+
+			if node.Right != nil {
+				q = append(q, node.Right)
+			}
+		}
+		continue // break here to see each level of the tree
+	}
+
+	return ret
+}
+
+/*
 The tree height is described as the longest path from the root to a leaf.
 We can calculate this with a DFS, comparing the length of the right and left, and returning the highest.
 */
